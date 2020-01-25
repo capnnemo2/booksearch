@@ -1,0 +1,8 @@
+.Book {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.Book img {
+    height: 60px;
+}

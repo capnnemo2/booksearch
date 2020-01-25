@@ -1,5 +1,7 @@
 import React from 'react';
 import Search from './components/Search/Search';
+import BooksearchApp from './components/BooksearchApp/BooksearchApp';
+import './App.css';
 
 export default class App extends React.Component {
   // constructor(props) {
@@ -15,21 +17,23 @@ export default class App extends React.Component {
     const options = {
       method: 'GET'
     }
-  }
+  };
 
   // fetch(url, options)
-  //   .then(res => {
-  //     if(!res.ok) {
-  //       throw new Error('No such book, we heard you can\'t read anyway.')
-  //     }
-  //     return res;
-  //   })
-  //   .then(res => res.json())
-  //   .catch(err => {
-  //     this.ListeningStateChangedEvent({
-  //       error: err.message
-  //     });
-  //   });
+    // .then(res => {
+    //   if(!res.ok) {
+    //     throw new Error('No such book, we heard you can\'t read anyway.')
+    //   }
+    //   return res;
+    // })
+    // .then(res => res.json())
+    // .catch(err => {
+    //   this.setState({
+    //     error: err.message
+    //   });
+    // });
+  
+    
 
 
 
@@ -38,6 +42,8 @@ export default class App extends React.Component {
       <div className='App'>
         <h1>Google Book Search</h1>
         <Search />
+
+        <BooksearchApp />
 
       </div>
     )

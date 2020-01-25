@@ -1,4 +1,5 @@
 import React from 'react';
+import './SearchFilters.css';
 
 export default class SearchFilters extends React.Component {
     render() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchFilters from '../SearchFilters/SearchFilters';
+import './Search.css';
 
 export default class Search extends React.Component {
     render() {
