@@ -1,3 +1,7 @@
 .SearchFilters {
     padding: 5px;
 }
+
+.SearchFilters label {
+    padding: 10px;
+}
