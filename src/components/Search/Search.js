@@ -6,7 +6,9 @@ export default class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: ""
+            query: "",
+            printType: "all",
+            bookType: "no-filter"
         };
     }
 
@@ -20,8 +22,9 @@ export default class Search extends React.Component {
     queryChanged(query) {
         this.setState({
             query
-        })
+        });
     }
+
 
     render() {
         return (
@@ -35,7 +38,9 @@ export default class Search extends React.Component {
                         placeholder='potato'
                         onChange={e => this.queryChanged(e.target.value)} />
                     <button type='submit'>Search</button>
-                    <SearchFilters />
+                    <SearchFilters
+                        printType={this.props.getPrintType}
+                        bookType={this.props.getBookType} />
                 </form>
 
             </div>

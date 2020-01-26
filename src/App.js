@@ -29,7 +29,19 @@ export default class App extends React.Component {
   getQuery = (newQuery) => {
     this.setState({
       query: newQuery
-    })
+    });
+  }
+
+  getPrintType = (newPrintType) => {
+    this.setState({
+      printType: newPrintType
+    });
+  }
+
+  getBookType = (newBookType) => {
+    this.setState({
+      bookType: newBookType
+    });
   }
 
 
@@ -42,7 +54,10 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <h1>Google Book Search</h1>
-        <Search getQuery={newQuery => this.getQuery(newQuery)} />
+        <Search 
+          getQuery={newQuery => this.getQuery(newQuery)}
+          getPrintType={this.getPrintType}
+          getBookType={this.getBookType} />
 
         <BooksearchApp />
 
