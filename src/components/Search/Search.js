@@ -10,13 +10,10 @@ export default class Search extends React.Component {
         };
     }
 
-    // handleSubmit = (e) => {
-    //     console.log(`ran handle submit`);
-    //     e.preventDefault();
-    //     this.setState({
-    //         query: e.target.value
-    //     });
-    // }
+    handleSubmit = (e) => {
+        console.log(`ran handle submit`);
+        e.preventDefault();
+    }
 
     queryChanged(query) {
         this.setState({
@@ -27,7 +24,7 @@ export default class Search extends React.Component {
     render() {
         return (
             <div className='Search'>
-                <form className='Search__form'>
+                <form className='Search__form' onSubmit={this.handleSubmit}>
                     <label htmlFor='search'>Search:</label>
                     <input
                         type='text'
