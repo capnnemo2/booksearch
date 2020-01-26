@@ -13,6 +13,8 @@ export default class Search extends React.Component {
     handleSubmit = (e) => {
         console.log(`ran handle submit`);
         e.preventDefault();
+        const newQuery = this.state.query;
+        this.props.getQuery(newQuery);
     }
 
     queryChanged(query) {
