@@ -15,19 +15,21 @@ export default class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    const baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
-    const options = {
-      method: 'GET'
-    };
-    const isPrintType = this.state.printType;
-    const isBookType = this.state.bookType;
-    // const queryString = baseUrl + query + '&' + isPrintType + '&' + isBookType;
-    // console.log(queryString);
-  };
+  // componentDidMount() {
+  //   const baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
+  //   const options = {
+  //     method: 'GET'
+  //   };
+  //   const isPrintType = this.state.printType;
+  //   const isBookType = this.state.bookType;
+  //   const queryString = baseUrl + this.state.query + '&' + isPrintType + '&' + isBookType;
+  //   console.log(queryString);
+  // };
 
-  getQuery = (query) => {
-    console.log(query);
+  getQuery = (newQuery) => {
+    this.setState({
+      query: newQuery
+    })
   }
 
 
@@ -40,7 +42,7 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <h1>Google Book Search</h1>
-        <Search getQuery={this.getQuery} />
+        <Search getQuery={newQuery => this.getQuery(newQuery)} />
 
         <BooksearchApp />
 
