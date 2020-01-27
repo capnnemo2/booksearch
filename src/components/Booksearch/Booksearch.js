@@ -9,15 +9,10 @@ export default class Booksearch extends React.Component {
         this.state = {
             query: "",
             printType: "all",
-            bookType: "no-filter"
+            bookType: "no-filter",
+            results: [],
+            error: null
         };
-    }
-
-    handleSubmit = (e) => {
-        console.log(`ran handle submit`);
-        e.preventDefault();
-        const newQuery = this.state.query;
-        this.props.getQuery(newQuery);
     }
 
     queryChanged(query) {
@@ -25,6 +20,55 @@ export default class Booksearch extends React.Component {
             query
         });
     }
+
+    getPrintType = (newPrintType) => {
+        this.setState({
+          printType: newPrintType
+        });
+    }
+    
+    getBookType = (newBookType) => {
+        this.setState({
+            bookType: newBookType
+        });
+    }
+
+    handleSubmit = (e) => {
+        console.log(`ran handle submit`);
+        e.preventDefault();
+        const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+        const apiKey = 'AIzaSyCuC9CJwx6Z2YZkyn3xanmL4lroIAkvVB0';
+
+        const queryUrl = url + this.state.query + '&printType=' + this.state.printType + '&filter=' + this.state.bookType +'&key=' + apiKey;
+
+        const queryUrlNoFilter = url + this.state.query + '&printType=' + this.state.printType + '&key=' + apiKey;
+
+        const realQueryUrl = this.state.bookType !== 'no-filter' ? queryUrl : queryUrlNoFilter;
+
+        console.log(realQueryUrl);
+
+        fetch(realQueryUrl)
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('It didn\'t work, but we heard you can\'t read anyway.')
+                }
+                return res;
+            })
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    results: data,
+                    error: null
+                })
+            })
+            .catch(err => {
+                this.setState({
+                    error: err.message
+                });
+            })
+    }
+
+    
 
 
     render() {
@@ -40,8 +84,8 @@ export default class Booksearch extends React.Component {
                         onChange={e => this.queryChanged(e.target.value)} />
                     <button type='submit'>Search</button>
                     <SearchFilters
-                        printType={this.props.getPrintType}
-                        bookType={this.props.getBookType} />
+                        printType={this.getPrintType}
+                        bookType={this.getBookType} />
                 </form>
 
                 <ResultList />
