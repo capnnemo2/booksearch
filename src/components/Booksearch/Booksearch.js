@@ -1,8 +1,9 @@
 import React from 'react';
 import SearchFilters from '../SearchFilters/SearchFilters';
-import './Search.css';
+import './Booksearch.css';
+import ResultList from '../ResultList/ResultList';
 
-export default class Search extends React.Component {
+export default class Booksearch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,6 +43,8 @@ export default class Search extends React.Component {
                         printType={this.props.getPrintType}
                         bookType={this.props.getBookType} />
                 </form>
+
+                <ResultList />
 
             </div>
         )

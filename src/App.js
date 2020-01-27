@@ -1,6 +1,5 @@
 import React from 'react';
-import Search from './components/Search/Search';
-import BooksearchApp from './components/BooksearchApp/BooksearchApp';
+import Booksearch from './components/Booksearch/Booksearch';
 import './App.css';
 
 export default class App extends React.Component {
@@ -15,7 +14,7 @@ export default class App extends React.Component {
     };
   }
 
-  // componentDidMount() {
+  // handleSubmit() {
   //   const baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
   //   const options = {
   //     method: 'GET'
@@ -54,13 +53,10 @@ export default class App extends React.Component {
     return (
       <div className='App'>
         <h1>Google Book Search</h1>
-        <Search 
+        <Booksearch 
           getQuery={newQuery => this.getQuery(newQuery)}
           getPrintType={this.getPrintType}
           getBookType={this.getBookType} />
-
-        <BooksearchApp />
-
       </div>
     )
   }

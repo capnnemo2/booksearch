@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from '../Book/Book';
 
-export default class BooksearchApp extends React.Component {
+export default class ResultList extends React.Component {
     render() {
         return (
             <div className='BooksearchApp'>
