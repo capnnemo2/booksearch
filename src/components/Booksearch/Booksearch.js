@@ -68,7 +68,12 @@ export default class Booksearch extends React.Component {
             })
     }
 
-    
+    // need to find a way to send results: data to ResultList
+    // ResultList can then filter the array and pick out the info we want to display for the initial list (IE: title, author, ebook, ??)
+    // Upon clicking the book (the whole li in a ul? inline-block? or just clicking the title? or clicking the book's image?) a conditional statement will display further details about the book: price?, partial vs full?, ??
+    // Clicking the book again will hide the extra info
+
+
 
 
     render() {
