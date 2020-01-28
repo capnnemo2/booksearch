@@ -28,7 +28,8 @@ export default class Book extends React.Component {
         const detail =  <div className='Book__details'>
                             <h2>{this.props.volumeInfo.title}</h2>
                             <h3>{this.props.volumeInfo.authors}</h3>
-                            <img src={this.props.volumeInfo.imageLinks.smallThumbnail} alt='the book' />
+                            <img src={this.props.volumeInfo.imageLinks.thumbnail} alt='the book' />
+                            <p>{this.props.volumeInfo.description}</p>
                             <button type='button' onClick={e => this.setShowDetail(false)}>Less details</button>
                         </div>
 
