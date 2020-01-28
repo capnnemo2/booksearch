@@ -18,6 +18,7 @@ export default class Book extends React.Component {
 
     render() {
        
+        // this could be another component
         const basic =   <div className='Book__basic_info'>
                             <h2>{this.props.volumeInfo.title}</h2>
                             <h3>{this.props.volumeInfo.authors}</h3>
@@ -25,6 +26,7 @@ export default class Book extends React.Component {
                             <button type='button' onClick={e => this.setShowDetail(true)}>More details</button>
                         </div>
 
+        // this could also be its own component
         const detail =  <div className='Book__details'>
                             <h2>{this.props.volumeInfo.title}</h2>
                             <h3>{this.props.volumeInfo.authors}</h3>
@@ -42,13 +44,4 @@ export default class Book extends React.Component {
             </div>
         )
     }
-    
-
-    
 }
-
-
-
-    // Upon clicking the book (the whole li in a ul? inline-block? or just clicking the title? or clicking the book's image?) a conditional statement will display further details about the book: price?, partial vs full?, ??
-    // Clicking the book again will hide the extra info
-    // I think to do this I need to set state in this component, probably use a conditional statement to render the book details with an onClick event listener.
